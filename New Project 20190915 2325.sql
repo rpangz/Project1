@@ -14,9 +14,15 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 
+--
+-- Create schema projectnew
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ projectnew;
+USE projectnew;
 
 --
--- Table structure for table `dealer`.`list_status`
+-- Table structure for table `projectnew`.`list_status`
 --
 
 DROP TABLE IF EXISTS `list_status`;
@@ -27,7 +33,7 @@ CREATE TABLE `list_status` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `dealer`.`list_status`
+-- Dumping data for table `projectnew`.`list_status`
 --
 
 /*!40000 ALTER TABLE `list_status` DISABLE KEYS */;
@@ -38,7 +44,7 @@ INSERT INTO `list_status` (`id_status`,`statusname`) VALUES
 
 
 --
--- Table structure for table `dealer`.`master_department`
+-- Table structure for table `projectnew`.`master_department`
 --
 
 DROP TABLE IF EXISTS `master_department`;
@@ -49,10 +55,10 @@ CREATE TABLE `master_department` (
   `createtime` datetime NOT NULL,
   `status` tinyint(1) NOT NULL,
   PRIMARY KEY (`dept_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `dealer`.`master_department`
+-- Dumping data for table `projectnew`.`master_department`
 --
 
 /*!40000 ALTER TABLE `master_department` DISABLE KEYS */;
@@ -62,12 +68,13 @@ INSERT INTO `master_department` (`dept_id`,`dept_name`,`createuser`,`createtime`
  (3,'AKUNTING','SYSTEM','2019-09-02 00:00:00',1),
  (7,'MANAGER','5144','2019-09-08 00:11:20',1),
  (8,'DIREKSI','5144','2019-09-08 00:29:52',1),
- (9,'FINANCE','5144','2019-09-09 05:19:25',1);
+ (9,'FINANCE','5144','2019-09-09 05:19:25',1),
+ (10,'DEVELOP','5144','2019-09-15 20:36:11',1);
 /*!40000 ALTER TABLE `master_department` ENABLE KEYS */;
 
 
 --
--- Table structure for table `dealer`.`master_formheader`
+-- Table structure for table `projectnew`.`master_formheader`
 --
 
 DROP TABLE IF EXISTS `master_formheader`;
@@ -80,10 +87,10 @@ CREATE TABLE `master_formheader` (
   `createtime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `formstatus` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_form`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `dealer`.`master_formheader`
+-- Dumping data for table `projectnew`.`master_formheader`
 --
 
 /*!40000 ALTER TABLE `master_formheader` DISABLE KEYS */;
@@ -92,13 +99,15 @@ INSERT INTO `master_formheader` (`id_form`,`headername`,`glyph`,`ordinal`,`creat
  (2,'Transaksi','ti-credit-card',2,'SYSTEM','2019-09-03 00:00:00',1),
  (3,'Laporan','ti-files',3,'5144','2019-09-08 01:25:32',1),
  (4,'Support','ti-headphone-alt',4,'SYSTEM','2019-09-03 00:00:00',1),
- (9,'Company Profile','ti-crown',1,'5144','2019-09-15 20:07:52',1),
- (10,'Struktur Organisasi','ti-headphone-alt',2,'5144','2019-09-15 20:08:17',1);
+ (9,'Company Profile','ti-crown',1,'5144','2019-09-15 22:21:59',0),
+ (10,'Struktur Organisasi','ti-headphone-alt',2,'5144','2019-09-15 22:22:08',0),
+ (11,'Employee','ti-crown',3,'5144','2019-09-15 20:40:02',1),
+ (12,'Report','ti-files',4,'5144','2019-09-15 20:40:14',1);
 /*!40000 ALTER TABLE `master_formheader` ENABLE KEYS */;
 
 
 --
--- Table structure for table `dealer`.`master_jabatan`
+-- Table structure for table `projectnew`.`master_jabatan`
 --
 
 DROP TABLE IF EXISTS `master_jabatan`;
@@ -112,7 +121,7 @@ CREATE TABLE `master_jabatan` (
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `dealer`.`master_jabatan`
+-- Dumping data for table `projectnew`.`master_jabatan`
 --
 
 /*!40000 ALTER TABLE `master_jabatan` DISABLE KEYS */;
@@ -125,7 +134,7 @@ INSERT INTO `master_jabatan` (`jabatan_id`,`jabatan_name`,`createuser`,`createti
 
 
 --
--- Table structure for table `dealer`.`secure_form_akses`
+-- Table structure for table `projectnew`.`secure_form_akses`
 --
 
 DROP TABLE IF EXISTS `secure_form_akses`;
@@ -138,7 +147,7 @@ CREATE TABLE `secure_form_akses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `dealer`.`secure_form_akses`
+-- Dumping data for table `projectnew`.`secure_form_akses`
 --
 
 /*!40000 ALTER TABLE `secure_form_akses` DISABLE KEYS */;
@@ -157,12 +166,19 @@ INSERT INTO `secure_form_akses` (`id_form`,`formdepartment`,`formjabatan`,`forms
  (12,1,2,1),
  (13,1,1,1),
  (13,2,1,1),
- (13,9,1,1);
+ (13,9,1,1),
+ (14,10,1,1),
+ (15,10,1,1),
+ (16,10,1,1),
+ (17,10,1,1),
+ (18,10,1,1),
+ (19,10,1,1),
+ (20,10,1,1);
 /*!40000 ALTER TABLE `secure_form_akses` ENABLE KEYS */;
 
 
 --
--- Table structure for table `dealer`.`secure_form_register`
+-- Table structure for table `projectnew`.`secure_form_register`
 --
 
 DROP TABLE IF EXISTS `secure_form_register`;
@@ -173,10 +189,10 @@ CREATE TABLE `secure_form_register` (
   `formheader` varchar(5) NOT NULL DEFAULT '',
   `formstatus` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_form`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `dealer`.`secure_form_register`
+-- Dumping data for table `projectnew`.`secure_form_register`
 --
 
 /*!40000 ALTER TABLE `secure_form_register` DISABLE KEYS */;
@@ -191,12 +207,17 @@ INSERT INTO `secure_form_register` (`id_form`,`formname`,`formtitle`,`formheader
  (8,'Master_Form','Form Register ','4',1),
  (12,'Laporan_Penjualan','Laporan Penjualan','3',0),
  (14,'Tambah_struktur','Upload Struktur','10',1),
- (15,'Lihat_struktur','Lihat Struktur','10',1);
+ (15,'Lihat_struktur','Lihat Struktur','10',1),
+ (16,'Lihat_CompanyProfile','Company Profile','9',1),
+ (17,'Isi_CompanyProfile','Edit Company Profile','9',1),
+ (18,'Maintenance','Lihat Data Karyawan','11',1),
+ (19,'Hris_DataKaryawan','Data Karyawan','11',1),
+ (20,'Maintenance','Laporan Data Karyawan','12',1);
 /*!40000 ALTER TABLE `secure_form_register` ENABLE KEYS */;
 
 
 --
--- Table structure for table `dealer`.`secure_user_register`
+-- Table structure for table `projectnew`.`secure_user_register`
 --
 
 DROP TABLE IF EXISTS `secure_user_register`;
@@ -213,7 +234,7 @@ CREATE TABLE `secure_user_register` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `dealer`.`secure_user_register`
+-- Dumping data for table `projectnew`.`secure_user_register`
 --
 
 /*!40000 ALTER TABLE `secure_user_register` DISABLE KEYS */;
@@ -223,7 +244,8 @@ INSERT INTO `secure_user_register` (`nik`,`nama`,`password`,`department`,`jabata
  ('5145','MATTHEW IMMANUEL PANGASIAN SITINJAK','$2y$10$R0E9ipRsQ6jAsqnm3BjDGuU66ELGf5rBn2gF3YV/qWFouoyVixJ9q','1','1','5144','2019-09-10 16:14:44','1'),
  ('5146','BRYANT PANGASIAN SITINJAK','$2y$10$JoeWEeyW2D9jmh0vcpxC3uE/kKtCCawlzJdtACEwycG0t3PWfofXm','1','1','5144','2019-09-10 17:00:16','1'),
  ('5155','UNTUK TESTING','$2y$10$g9NTwaljX9IkE7B6tJAYZefGbtWcm9W2/KCv4WDQpSWRN/z6UjfNW','2','1','5144','2019-09-07 00:37:29','1'),
- ('5156','AGNES JULIANTI','$2y$10$H4V/nFqSF8g2SWweVJc80.slAfbijAW8BZx1JlwVmdp5//NRDl1Vm','3','2','5144','2019-09-15 17:26:41','1');
+ ('5156','AGNES JULIANTI','$2y$10$H4V/nFqSF8g2SWweVJc80.slAfbijAW8BZx1JlwVmdp5//NRDl1Vm','3','2','5144','2019-09-15 17:26:41','1'),
+ ('9999','USER DEVELOP','$2y$10$fUj.hmqim1SLXsbxBguuqu.8/NduAgFoTGYSrWQ2OYA5NSWbda5w2','10','1','5144','2019-09-15 20:51:37','1');
 /*!40000 ALTER TABLE `secure_user_register` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
